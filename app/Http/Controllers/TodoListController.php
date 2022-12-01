@@ -1,9 +1,10 @@
 <?php
-
+/// 私はここにいるクラスです
 namespace App\Http\Controllers;
-
+/// 私はこのクラスを使います
 use Illuminate\Http\Request;
-// 15行目のモデルクラス「TodoList」を使うために、スクリプトの先頭でuse文によりTodoListを読み込む
+// 15行目のモデルクラス「TodoList」を使うために、
+// スクリプトの先頭でuse文によりTodoListを読み込む
 use App\Models\TodoList;
 
 class TodoListController extends Controller
