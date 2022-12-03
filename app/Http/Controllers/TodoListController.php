@@ -19,6 +19,11 @@ class TodoListController extends Controller
     // テンプレートに変数「todo_lists」を渡す
     // viewメソッドの第一引数には、「どのビューファイルか」を指定
     // 変数名と値がペアになった連想配列を第2引数に設定
-    return view('todo_list.index', ['todo_lists' => $todo_lists]);
+    return view('todo_list.index', compact('todo_lists'));
+    // resources/views/todo_list/index.blade.php
+    //  というviewファイルにモデルを使ってデータベースからとってきた
+    // todolistのデータを渡して画面に変換して
+    // ブラウザーに投げ返す
+    
   }
 }

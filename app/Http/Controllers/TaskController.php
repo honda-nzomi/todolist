@@ -14,12 +14,31 @@ class TaskController extends Controller
 {
   public function index()
   {
+    /// レコードとは、カラムが列なら、レコードは行むたいな...
+    // モデル名::all() で、モデルのレコードを全部取得できる
+    $tasks = Task::all();
+    ///  未完了のものだけ表示する
+    $tasks = Task::where('status', false)->get();
+    /// 複数のレコードを取得するとき // $変数 = モデルクラス::where(カラム名, 値)->get(); 
+    /// 最初のレコードだけ取得するとき // $変数 = モデルクラス::where(カラム名, 値)->first();
+
+    
+    
     // viewメソッドの第一引数には、「どのビューファイルか」を指定
-    return view('tasks.index');
+    // return view('tasks.index');
+    return view('tasks.index', compact('tasks'));
+    // compact関数を使うと簡単に書くことができる
+    /// compact関数とは、変数名とその値から配列を作成する
   }
   // タスク入力画面で、「追加する」を押したらこのstoreメソッドにその値が渡ってくる
   // 依存性注入
   /// 私はこのRequest(５行目に記載)クラスを使います
+  
+  public function create()
+  {
+    // 使わない
+  }
+  // storeメソッドで、登録処理
   public function store(Request $request)
   {
     // request->input('フォームのキーの名前')
@@ -28,6 +47,8 @@ class TaskController extends Controller
     // dd($task_name);
     
     $rules = [
+      // $task_name = $request->input('task_name');
+      // dd($task_name);
       /// task_nameに、100文字以下(max:100)をバリデーションルールとして設定
       'task_name' => 'required|max:100'
     ];
@@ -59,5 +80,66 @@ class TaskController extends Controller
     /// リダイレクトとは、新しいURLに変更した際、自動的に転送をする仕組み
     return redirect('/tasks');
     
-  }  
+  } 
+  
+  public function show()
+  {
+    //
+  }
+  // モデル名::find(整数); で $idに一致するレコードを取得する
+  // editメソッドで編集画面のビューを返す
+  public function edit($id)
+  {
+    $task = Task::find($id);
+    return view('tasks.edit', compact('task'));
+  }
+  
+  public function update(Request $request,$id)
+  {
+    
+    //「編集する」ボタンをおしたとき
+    if ($request->status === null) {
+    
+      $rules = [
+        'task_name' => 'required|max:100',
+      ];
+      
+      $messages = ['required' => '必須項目です', 'max' => '100文字以下にしてください。'];
+    
+      Validator::make($request->all(), $rules, $messages)->validate();
+      
+      //該当のタスクを検索
+      $task = Task::find($id);
+      
+      //モデル->カラム名 = 値 で、データを割り当てる
+      $task->name = $request->input('task_name');
+      
+      //データベースに保存
+      $task->save();
+    } else {
+      //「完了」ボタンを押したとき
+  
+      //該当のタスクを検索
+      $task = Task::find($id);
+      
+      //モデル->カラム名 = 値 で、データを割り当てる
+      $task->status = true; //true:完了、false:未完了
+      
+      //データベースに保存
+      $task->save();
+    }
+      
+    //リダイレクト
+    return redirect('/tasks');
+  }
+  
+  public function destroy($id)
+  {
+    // レコードを、findで探し、deleteメソッドを呼び出すだけで削除ができる
+    Task::find($id)->delete();
+    // 削除したあとは元の画面に
+    // 戻ってきてほしいのでリダイレクトする
+    return redirect('/tasks');
+  }
+  
 }

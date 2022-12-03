@@ -7,7 +7,7 @@ use resources\view\tasks\index;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TodoList extends Model
+class Task extends Model
 {
     use HasFactory;
 }
