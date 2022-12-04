@@ -91,7 +91,7 @@
                               method="post"
                               class="inline-block text-gray-500 font-medium"
                               role="menuitem" tabindex="-1">
-                              @csrfs
+                              <!--@csrfs-->
                               @method('PUT')
                               <input type="hidden" name="status" value="{{$item->status}}">
                               <button type="submit"

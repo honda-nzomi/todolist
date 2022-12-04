@@ -98,6 +98,7 @@ class TaskController extends Controller
   {
     
     //「編集する」ボタンをおしたとき
+    /// 編集できるね Ok~s
     if ($request->status === null) {
     
       $rules = [
@@ -118,7 +119,7 @@ class TaskController extends Controller
       $task->save();
     } else {
       //「完了」ボタンを押したとき
-  
+      /// あれっ？完了できないやん？
       //該当のタスクを検索
       $task = Task::find($id);
       
