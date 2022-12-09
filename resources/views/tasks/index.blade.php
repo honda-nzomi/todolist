@@ -78,6 +78,7 @@
                 <tbody class="divide-y divide-gray-200 bg-white">
                   <!--compactdeで渡されたデータ$tasksが使えるようになる-->
                   @foreach($tasks as $item)
+                  
                     <tr>
                       <td class="px-3 py-4 text-sm text-gray-500">
                         <div>
@@ -94,17 +95,16 @@
                               @csrf
                               @method('PUT')
                               <input type="hidden" name="status" value="{{$item->status}}">
-                              <button type="submit"
-                                class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerld-800 transition-colors">
-                                完了
-                              </button>  
+                              <!--<button type="submit" class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerld-800 transition-colors">-->
+
+                                <!--ボタンを黒に変更した-->
+                              <button type="submit" 
+                                class="mt-8 p-4 bg-slate-800 text-white w-full max-wxs hover:bg-slate-900 transition-colors">完了</button>
                             </form>
                           </div>
                           <div>
                             <a href="/tasks/{{ $item->id }}/edit/"
-                              class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky100 transition-colors">
-                              編集
-                            </a>
+                              class="inline-block text-center py-4 w-20 underline underline-offset-2 text-sky-600 md:hover:bg-sky-100 transition-colors">編集</a>
                           </div>
                           <div>
                             <form onsubmit="return deleteTask();"

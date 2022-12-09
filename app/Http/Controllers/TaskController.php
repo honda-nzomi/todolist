@@ -16,7 +16,7 @@ class TaskController extends Controller
   {
     /// レコードとは、カラムが列なら、レコードは行むたいな...
     // モデル名::all() で、モデルのレコードを全部取得できる
-    $tasks = Task::all();
+    // $tasks = Task::all();
     ///  未完了のものだけ表示する
     $tasks = Task::where('status', false)->get();
     /// 複数のレコードを取得するとき // $変数 = モデルクラス::where(カラム名, 値)->get(); 
@@ -39,6 +39,8 @@ class TaskController extends Controller
     // 使わない
   }
   // storeメソッドで、登録処理
+  // Requestというクラスのインスタンスである$requestという変数を引数でもらう。
+  // ブラウザーの情報
   public function store(Request $request)
   {
     // request->input('フォームのキーの名前')

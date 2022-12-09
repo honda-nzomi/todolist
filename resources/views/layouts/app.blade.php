@@ -14,7 +14,8 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!--<script src="https://cdn.tailwindcss.com"></script>-->
+    <!--tailwindcssを導入する-->
 </head>
 <body>
     <div id="app">
