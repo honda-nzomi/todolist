@@ -95,7 +95,8 @@
                               @csrf
                               @method('PUT')
                               <input type="hidden" name="status" value="{{$item->status}}">
-                              <!--<button type="submit" class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerld-800 transition-colors">-->
+                              <!--<button type="submit" 
+                                  class="bg-emerald-700 py-4 w-20 text-white md:hover:bg-emerld-800 transition-colors">-->
 
                                 <!--ボタンを黒に変更した-->
                               <button type="submit" 

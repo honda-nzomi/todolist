@@ -16,6 +16,8 @@
     <!-- Scripts -->
     <!--<script src="https://cdn.tailwindcss.com"></script>-->
     <!--tailwindcssを導入する-->
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
