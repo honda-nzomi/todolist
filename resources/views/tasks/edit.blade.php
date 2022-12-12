@@ -1,9 +1,11 @@
+<!--layoutsのtodolist.brade.php-->
 @extends('layouts.todolist')
 
 @section('content')
 <div class="container">
       <div class="row">
         <form action="/tasks/{{ $task->id }}" method="post">
+          @csrf
           @method('PUT')
           <div class="col-md-6 offset-3 form-group my-5">
             <input class="form-control" type="text" name="task_name" value="{{ $task->name }}" />
@@ -18,9 +20,6 @@
         </form>
       </div>
     </div>
-
-
-
 @endsection
 
   <!--<!DOCTYPE html>-->
