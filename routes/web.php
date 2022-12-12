@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoListController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,13 +16,17 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// /にアクセスした際に、Homeコントローラーのindexメソッドを実行
+
+Route::get('/', [HomeController::class, 'index']);
+
 
 Auth::routes();
 /// 割り振りをするため
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
      // アドレス,コントローラーの名前::class , メソッド名
 Route::get('/list', [TodoListController::class, 'index']);
 /// getで、'/tasks' を呼ばれたら、
