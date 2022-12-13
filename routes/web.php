@@ -47,5 +47,6 @@ Route::get('/list', [TodoListController::class, 'index']);
 // Route::post('/delete',[TaskController::class,'delete']);
 /// エラーが出たので追加した 
 // Route::post('/tasks', [TaskController::class, 'store']);
-Route::resource('tasks', TaskController::class);
+Route::resource('tasks', TaskController::class)->middleware('auth');
+
  

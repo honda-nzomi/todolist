@@ -1,7 +1,7 @@
 <?php
-
+// 今私はここにいます
 namespace App\Providers;
-
+// 私はこれを使います
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
