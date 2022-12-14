@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Task;
 // Validatorクラスを使うため
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 // モデルクラスの、「Tasks」から、データを取得する処理？？？
 class TaskController extends Controller
@@ -18,7 +19,9 @@ class TaskController extends Controller
     // モデル名::all() で、モデルのレコードを全部取得できる
     // $tasks = Task::all();
     ///  未完了のものだけ表示する
-    $tasks = Task::where('status', false)->get();
+    // $tasks = Task::where('status', false)->get();
+    $tasks = Auth::user()->tasks()->get();
+
     /// 複数のレコードを取得するとき // $変数 = モデルクラス::where(カラム名, 値)->get(); 
     /// 最初のレコードだけ取得するとき // $変数 = モデルクラス::where(カラム名, 値)->first();
 
@@ -74,6 +77,8 @@ class TaskController extends Controller
     //モデル->カラム名 = 値 で、データを割り当てる
     /// カラムとは､Excelでいう「列」のこと...データベースに入っているデータの「項目」のこと
     $task->name = $request->input('task_name');
+    // useを記載する
+    $task->user_id = Auth::id();
     
     //データベースに保存 /// saveメソッドを実行
     $task->save();

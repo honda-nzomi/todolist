@@ -23,7 +23,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-
+// 認証機能に関するルーティング
 Auth::routes();
 /// 割り振りをするため
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
