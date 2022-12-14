@@ -53,11 +53,13 @@
                                   <!--updateメソッド-->
                                     <input type="hidden" name="status" value="{{$item->status}}">
                                     <button type="submit" class="btn btn-Primary btn-block mx-1">完了</button>
-                                </form>
                                 @endif  
-                                  <a href="/tasks/{{ $item->id }}/edit/" class="btn btn-success btn-block mx-1">
-                                  編集
-                                  </a>
+                                </form>
+                                <form action="/tasks/{{ $item->id }}/edit/" method="get" role="menuitem" tabindex="-1">
+                                  <input type="hidden" name="status" value="{{$item->status}}">
+                                    <button type="submit" class="btn btn-success btn-block mx-1">編集</button>
+                                  
+                                  </form>
                                   <form onsubmit="return deleteTask();" action="/tasks/{{ $item->id }}" method="post" role="menuitem" tabindex="-1">
                                     @csrf
                                     @method('DELETE')
