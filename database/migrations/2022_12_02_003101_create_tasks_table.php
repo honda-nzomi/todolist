@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name',100);
             $table->boolean('status')->default(false);
+            $table->dateTime('deadline')->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
         });

@@ -7,6 +7,71 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+最初にロゴ・アイキャッチ画像などを表示
+
+# リポジトリ名
+
+概要を記述する
+
+
+## デモ
+
+![デモ](https://image-url.gif)
+
+
+## 使い方
+
+DEMOの実行方法など、"Webアプリ"の基本的な使い方を説明
+
+1. 使い方
+2. 使い方
+3. 使い方
+
+
+## 環境
+
+* Amazon Linux 2
+* Laravel 9.41.0
+* Laravel 9.41.0
+* PHP 8.0.25
+* Node.js 16.18.0
+* npm 8.19.2
+* Cloud9
+* MySQ 14.14
+* TailWind を使用
+
+
+
+## 注意事項
+
+注意点などがあれば書く
+
+
+## 文責
+
+作成情報を列挙する
+
+* 作成者
+* 所属
+* E-mail
+* [@twitter_username](https://twitter.com/twitter_username)
+
+
+## ライセンス
+
+ライセンスを明示する
+
+"リポジトリ名" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+
+
+## 参考文献
+
+https://b-risk.jp/blog/2022/08/laravel/#i-11
+
+https://www.hypertextcandy.com/laravel-tutorial-create-task
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

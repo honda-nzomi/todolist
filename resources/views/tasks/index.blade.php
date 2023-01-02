@@ -13,11 +13,18 @@
                   </p>
 
                   <div class="pb-2">
+                    
                       <form action="/tasks" method="post" class="align-items-center mb-4">
                           @csrf
                           <div class="form-outline flex-fill">
-                              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="洗濯ものをする・・・" name="task_name">
+                              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Todoを入力してください" name="task_name">
                           </div>
+                          
+                          <div class="form-group">
+                            <label for="date" class="col-form-label">期限日を入力</label>
+                            <input type="datetime-local" class="form-control" id="date" placeholder="期限日時を入力してください" name="date">
+                          </div>
+                                                  
                           @error('task_name')
                             <p class="form-text text-danger">{{ $message }}</p>
                           @enderror
@@ -41,6 +48,11 @@
                                 <p class="lead fw-normal mb-0 px-2">{{ $item->name }}</p>
                               @endif  
                             </li>
+                            <!--デットラインを表示-->
+                            <!--マイグレーションフォルダの中のテーブルの中のカラムと同じ名前-->
+                            @php $dt = new Datetime($item->deadline); @endphp
+                            <div class="card bg-info mb-0 px-2 align-middle text-center" style="font-size: 20px; color: white">{{ $dt->format('m月d日 H時i分') }}</div>
+                      
                             <li class="ps-3 py-1 rounded-0 border-0 bg-transparent">
                               <div class="d-flex flex-row justify-content-end mb-1">
                                

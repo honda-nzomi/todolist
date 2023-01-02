@@ -20,8 +20,11 @@ class TaskController extends Controller
     // $tasks = Task::all();
     ///  未完了のものだけ表示する
     // $tasks = Task::where('status', false)->get();
-    $tasks = Auth::user()->tasks()->get();
-
+    // 期限日時の昇順で取得する
+    $tasks = Auth::user()->tasks()->orderBy('deadline', 'asc')->get();
+    // $trip_contents = TripContents::orderBy('recruitment_end_date', 'asc')->get();
+    // $data = $users->orderBy('deadline', 'asc')->get();
+    
     /// 複数のレコードを取得するとき // $変数 = モデルクラス::where(カラム名, 値)->get(); 
     /// 最初のレコードだけ取得するとき // $変数 = モデルクラス::where(カラム名, 値)->first();
 
@@ -79,6 +82,18 @@ class TaskController extends Controller
     $task->name = $request->input('task_name');
     // useを記載する
     $task->user_id = Auth::id();
+    
+    // tasksテーブルのカラムにデットラインを設定する処理
+    // $dateTime = '2018/04/05';
+    $task->deadline = $request->input('date');
+    // dd($task->deadline);
+    
+    // $date->setDate(2014,8,1)->setTime(1,10,13);
+    // echo $date->format('Y-m-d H:i:s'); // 2014-08-01 01:10:13
+     
+    // $format = 'Y年m月d日 H時i分s秒';
+    // $date = DateTime::createFromFormat($format, '2014年02月05日 23時11分24秒');
+    // echo $date->format('Y-m-d H:i:s');
     
     //データベースに保存 /// saveメソッドを実行
     $task->save();
