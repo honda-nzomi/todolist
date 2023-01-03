@@ -21,7 +21,11 @@ class TaskController extends Controller
     ///  未完了のものだけ表示する
     // $tasks = Task::where('status', false)->get();
     // 期限日時の昇順で取得する
-    $tasks = Auth::user()->tasks()->orderBy('deadline', 'asc')->get();
+    // $tasks = Auth::user()->tasks()->orderBy('deadline', 'asc')->get();
+    $tasks = Auth::user()->tasks->sortBy([
+      ['status', 'asc'],
+      ['deadline', 'asc']]);
+   
     // $trip_contents = TripContents::orderBy('recruitment_end_date', 'asc')->get();
     // $data = $users->orderBy('deadline', 'asc')->get();
     
