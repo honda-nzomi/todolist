@@ -14,7 +14,7 @@
 <body>
             <nav class="navbar navbar-light bg-dark">
               <div class="container-fluid">
-                <a class="navbar-brand text-light">Todoアプリ</a>
+                <a class="navbar-brand text-light">シンプルなTodoリスト</a>
                 <form class="d-flex" action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="btn btn-light" type="submit">{{ __('Logout') }}</button>
