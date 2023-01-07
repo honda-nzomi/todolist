@@ -9,9 +9,10 @@
               <div class="card" id="list1" style="border-radius: .75rem; background-color: #EFF1F2;">
                 <div class="card-body py-4 px-4 px-md-5">
 
-                  <!--<p class="h1 text-center pb-3 text-dark">-->
-                  <!--  今日は何をする？-->
-                  <!--</p>-->
+                  <p class="h1 text-left pb-3 text-dark">
+                    さんのTodo
+                    
+                  </p>
 
                   <div class="pb-2">
 
@@ -28,7 +29,7 @@
                               <div class="col-md-2">
                               <!--<div class="col-3 form-group">-->
                                 <!--<label for="date" class="col-form-label">期限日を入力</label>-->
-                                <input type="datetime-local" class="form-control" id="date" placeholder="期限日時を入力してください" name="date">
+                                <input type="datetime-local" id="date" placeholder="期限日時を入力" name="date">
                               </div>
     
                             @error('task_name')
@@ -55,6 +56,18 @@
                             
                           <div class="col-sm-10 card mb-0 px-2 align-middle text-center border-0" style="font-size: 14px;">
                             <table>
+                              
+                              <tr>
+                                <td colspan="4" class="card">
+                                 {{--<li class="list-group-item px-0 py-1 d-flex align-items-center flex-grow-1 border-0 rounded">--}}
+                                  @if ($item->status === 1)
+                                    <del><p class="lead fw-normal mb-0 px-2">{{ $item->name }}</p></del>
+                                  @else
+                                    <p class="lead fw-normal mb-0 px-2">{{ $item->name }}</p>
+                                  @endif
+                                </td>
+                              </tr>
+                              
                               <tr>
                                 <td width="40%">
                                   <!--デットラインを表示-->
@@ -89,16 +102,6 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-block mx-1">削除</button>
                                   </form>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td colspan="4" class="card">
-                                 {{--<li class="list-group-item px-0 py-1 d-flex align-items-center flex-grow-1 border-0 rounded">--}}
-                                  @if ($item->status === 1)
-                                    <del><p class="lead fw-normal mb-0 px-2">{{ $item->name }}</p></del>
-                                  @else
-                                    <p class="lead fw-normal mb-0 px-2">{{ $item->name }}</p>
-                                  @endif
                                 </td>
                               </tr>
                             </table>

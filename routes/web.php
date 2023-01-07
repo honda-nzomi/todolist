@@ -16,9 +16,14 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/test', function () {
-    return view('test');
+// Route::get('/test', function () {
+//     return view('test');
+// });
+
+Route::get('/', function () {
+    return view('welcome');
 });
+
 // /にアクセスした際に、Homeコントローラーのindexメソッドを実行
 
 Route::get('/', [HomeController::class, 'index']);
