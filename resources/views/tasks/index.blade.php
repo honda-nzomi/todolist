@@ -29,7 +29,7 @@
                               <div class="col-md-2">
                               <!--<div class="col-3 form-group">-->
                                 <!--<label for="date" class="col-form-label">期限日を入力</label>-->
-                                <input type="datetime-local" id="date" placeholder="期限日時を入力" name="date">
+                                <input type="datetime-local" class="form-control" id="date"  name="date">
                               </div>
     
                             @error('task_name')
