@@ -6,13 +6,9 @@
           
             <!--row-->
             <div class="row d-flex justify-content-center align-items-center">
-              <div class="card" id="list1" style="border-radius: .75rem; background-color: #EFF1F2;">
+              <!--<div class="card" id="list1" style="border-radius: .75rem; background-color: #EFF1F2;">-->
                 <div class="card-body py-4 px-4 px-md-5">
 
-                  <p class="h1 text-left pb-3 text-dark">
-                    さんのTodo
-                    
-                  </p>
 
                   <div class="pb-2">
 
@@ -43,10 +39,14 @@
                           </form>
                             </div>
                         </div>
-                   </div>
+                   <!--</div>-->
                       
                   </div>
 
+                  <p class="h1 text-left pb-3 text-dark">
+                  あなたのTodo
+                    
+                  </p>
 
                   @if ($tasks->isNotEmpty())
                       @foreach ($tasks as $item)
@@ -69,14 +69,14 @@
                               </tr>
                               
                               <tr>
-                                <td width="40%">
+                                <td width="76%">
                                   <!--デットラインを表示-->
                                   <!--マイグレーションフォルダの中のテーブルの中のカラムと同じ名前-->
                                   @php $dt = new Datetime($item->deadline); @endphp
                                   {!! $dt->format('m月d日') !!}<br>
                                   {!! $dt->format('H時i分') !!}
                                 </td>
-                                <td width="20%">
+                                <td width="8%">
                                   <form action="/tasks/{{ $item->id }}" method="post" role="menuitem" tabindex="-1">
                                     @csrf
                                     @method('PUT')
@@ -89,14 +89,14 @@
                                   @endif
                                   </form>
                                 </td>
-                                <td width="20%">
+                                <td width="8%">
                                   <form action="/tasks/{{ $item->id }}/edit/" method="get" role="menuitem" tabindex="-1">
                                     <input type="hidden" name="status" value="{{$item->status}}">
                                       <button type="submit" class="btn btn-success btn-block mx-1">編集</button>
   
                                   </form>
                                 </td>
-                                <td width="20%">
+                                <td width="8%">
                                   <form onsubmit="return deleteTask();" action="/tasks/{{ $item->id }}" method="post" role="menuitem" tabindex="-1">
                                     @csrf
                                     @method('DELETE')
