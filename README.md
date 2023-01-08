@@ -9,7 +9,7 @@
 
 <!--最初にロゴ・アイキャッチ画像などを表示-->
 
-![デモ](./README_image/Todo.jp)
+![デモ](./README_image/Todo.jpg)
 
 
 
