@@ -7,12 +7,21 @@
         <form action="/tasks/{{ $task->id }}" method="post">
           @csrf
           @method('PUT')
-          <div class="col-md-6 offset-3 form-group my-5">
+          <!--<div class="col-md-5 offset-3 form-group my-5">-->
+          <div class="col-xs-offset-4 col-xs-4">
+            <label for="date" class="col-form-label">Todoの編集</label>
             <input class="form-control" type="text" name="task_name" value="{{ $task->name }}" />
             @error('task_name')
               <p class="text-danger">{{ $message }}</p>
             @enderror
           </div>
+          <!--<div class="col-md-5 offset-3 form-group my-5">-->
+          <!--<div class="col-3 form-group">-->
+          <div class="col-xs-offset-4 col-xs-4">
+            <label for="date" class="col-form-label">期限日の編集</label>
+            <input type="datetime-local" class="form-control" id="date"  name="date" value="{{$task->deadline}}">
+          </div>
+    
           <p class="text-center my-3">
             <a href="/tasks" class="btn btn-dark py-2">戻る</a>
             <button type="submit" class="btn btn-dark py-2">編集する</button>

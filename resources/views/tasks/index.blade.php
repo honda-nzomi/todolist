@@ -20,19 +20,21 @@
                               
                             <div class="col-md-7">
                               <!--<div class="col-9 form-outline flex-fill">-->
+                                  <label for="date" class="col-form-label">Todoを入力</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Todoを入力してください" name="task_name">
                               </div>
                               <div class="col-md-2">
                               <!--<div class="col-3 form-group">-->
-                                <!--<label for="date" class="col-form-label">期限日を入力</label>-->
+                                <label for="date" class="col-form-label">期限日を入力</label>
                                 <input type="datetime-local" class="form-control" id="date"  name="date">
                               </div>
-    
-                            @error('task_name')
+                        
+                              @error('task_name')
                               <p class="form-text text-danger">{{ $message }}</p>
-                            @enderror
+                              @enderror
                             
                               <div class="col-md-3 text-center">
+                               
                                 <button type="submit" class="btn btn-dark px-5">Todo追加</button>
                               </div>
                             </div>
@@ -42,6 +44,10 @@
                    <!--</div>-->
                       
                   </div>
+                  
+                  <hr class="my-0">
+                  <!--<p class="lead fw-normal mb-0 py-2"></p>-->
+                  <p class="mb-0 py-2"></p>
 
                   <p class="h1 text-left pb-3 text-dark">
                   あなたのTodo
@@ -70,6 +76,7 @@
                               
                               <tr>
                                 <td width="76%">
+                               
                                   <!--デットラインを表示-->
                                   <!--マイグレーションフォルダの中のテーブルの中のカラムと同じ名前-->
                                   @php $dt = new Datetime($item->deadline); @endphp
@@ -107,7 +114,7 @@
                             </table>
                           </div> 
                         </div>
-                      <hr class="my-0">
+                      <!--<hr class="my-0">-->
                       @endforeach
                   @endif
                 
