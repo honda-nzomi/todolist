@@ -61,6 +61,7 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
+                                    <a href="{{ route('password_reset.email.form') }}">パスワードをお忘れの方</a>
                                 @endif
                             </div>
                         </div>

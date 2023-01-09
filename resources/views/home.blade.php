@@ -77,6 +77,9 @@
                     </button>
                 </div>
                 <p class="text-center py-3">
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
                     <a href="/register">まだアカウントを作成していない方</a>
                 </p>
             </div>
