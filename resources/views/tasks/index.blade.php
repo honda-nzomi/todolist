@@ -50,7 +50,7 @@
                   <p class="mb-0 py-2"></p>
 
                   <p class="h1 text-left pb-3 text-dark">
-                  あなたのTodo
+                  {{Auth::user()->name}}さんのTodo
                     
                   </p>
 

@@ -71,17 +71,24 @@
             </div>
 
             <div class="row mb-0">
-                <div class="col-md-8 offset-md-4 text-right">
+                <div class="col-md-8 offset-md-2 text-center">
                     <button type="submit" class="btn btn-primary px-5">
                         {{ __('Login') }}
                     </button>
                 </div>
-                <p class="text-center py-3">
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('Forgot Your Password?') }}
-                    </a>
-                    <a href="/register">まだアカウントを作成していない方</a>
-                </p>
+                <div>
+                    <p class="text-center py-3">
+                        <a href="/register">まだアカウントを作成していない方</a>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-center py-3">        
+                        <!--<p class="mb-0 py-1">-->
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('パスワードを忘れた方') }}
+                        </a>
+                        <!--</p>-->
+                    </p>
             </div>
         </form>
       </div>
