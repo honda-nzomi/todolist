@@ -9,6 +9,7 @@ use App\Models\Task;
 // Validatorクラスを使うため
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use Carbon\Carbon;
 
 // モデルクラスの、「Tasks」から、データを取得する処理？？？
 class TaskController extends Controller
@@ -25,7 +26,8 @@ class TaskController extends Controller
     $tasks = Auth::user()->tasks->sortBy([
       ['status', 'asc'],
       ['deadline', 'asc']]);
-   
+    $carbon = Carbon::today();
+    $tomorrow = Carbon::tomorrow();
     // $trip_contents = TripContents::orderBy('recruitment_end_date', 'asc')->get();
     // $data = $users->orderBy('deadline', 'asc')->get();
     
@@ -36,7 +38,7 @@ class TaskController extends Controller
     
     // viewメソッドの第一引数には、「どのビューファイルか」を指定
     // return view('tasks.index');
-    return view('tasks.index', compact('tasks'));
+    return view('tasks.index', compact('tasks','carbon','tomorrow'));
     // compact関数を使うと簡単に書くことができる
     /// compact関数とは、変数名とその値から配列を作成する
   }

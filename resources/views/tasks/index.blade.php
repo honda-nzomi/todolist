@@ -19,20 +19,18 @@
                             <div class="form-group row">
                               
                             <div class="col-md-7">
+                              @error('task_name')
+                              <p class="form-text text-danger">{{ $message }}</p>
+                              @enderror
                               <!--<div class="col-9 form-outline flex-fill">-->
-                                  <label for="date" class="col-form-label">Todoを入力</label>
-                                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Todoを入力してください" name="task_name">
+                                <label for="task_name" class="col-form-label">Todoを入力</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Todoを入力してください" name="task_name">
                               </div>
                               <div class="col-md-2">
                               <!--<div class="col-3 form-group">-->
                                 <label for="date" class="col-form-label">期限日を入力</label>
                                 <input type="datetime-local" class="form-control" id="date"  name="date">
                               </div>
-                        
-                              @error('task_name')
-                              <p class="form-text text-danger">{{ $message }}</p>
-                              @enderror
-                            
                               <div class="col-md-3 text-center">
                                
                                 <button type="submit" class="btn btn-dark px-5">Todo追加</button>
@@ -55,6 +53,7 @@
                   </p>
 
                   @if ($tasks->isNotEmpty())
+                      
                       @foreach ($tasks as $item)
                       <div class="row py-2">
                         
@@ -66,10 +65,16 @@
                               <tr>
                                 <td colspan="4" class="card">
                                  {{--<li class="list-group-item px-0 py-1 d-flex align-items-center flex-grow-1 border-0 rounded">--}}
+                                  @php $deadline = new Carbon\Carbon($item->deadline); @endphp
+                                  {{--完了した場合--}}
                                   @if ($item->status === 1)
                                     <del><p class="lead fw-normal mb-0 px-2">{{ $item->name }}</p></del>
+                                  {{--完了してない場合--}}
+                                 
+                                  @elseif ($deadline->between($carbon, $tomorrow))
+                                    <p class="lead fw-normal mb-0 px-2 text-danger border-danger"><strong>{{ $item->name }}</strong></p>
                                   @else
-                                    <p class="lead fw-normal mb-0 px-2">{{ $item->name }}</p>
+                                    <p class="lead fw-normal mb-0 px-2" >{{ $item->name }}</p>
                                   @endif
                                 </td>
                               </tr>
