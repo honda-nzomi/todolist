@@ -15,6 +15,8 @@
             <nav class="navbar navbar-light bg-dark">
               <div class="container-fluid">
                 <a class="navbar-brand text-light">シンプルなTodoリスト</a>
+                <a href="https://docs.google.com/document/d/1KTSBirz6JeLHKA-SWDz3WeiDtqfjbvk9121erN3Ttpg/edit?usp=sharing" target="_blank" class="navbar-text text-light">説明書</a>
+              
                 <form class="d-flex" action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="btn btn-light" type="submit">{{ __('Logout') }}</button>
