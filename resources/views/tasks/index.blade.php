@@ -2,6 +2,9 @@
 
 @section('content')
 
+<link href="{{ secure_asset('css/tasks.css') }}" rel="stylesheet">
+
+
 <div class="container">
           
             <!--row-->
@@ -23,7 +26,7 @@
                               <p class="form-text text-danger">{{ $message }}</p>
                               @enderror
                               <!--<div class="col-9 form-outline flex-fill">-->
-                                <label for="task_name" class="col-form-label">Todoを入力</label>
+                                <label for="task_name" class="col-form-label input-todo">Todoを入力</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Todoを入力してください" name="task_name">
                               </div>
                               <div class="col-md-2">

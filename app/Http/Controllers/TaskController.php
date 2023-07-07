@@ -26,8 +26,9 @@ class TaskController extends Controller
     $tasks = Auth::user()->tasks->sortBy([
       ['status', 'asc'],
       ['deadline', 'asc']]);
-    $carbon = Carbon::today();
-    $tomorrow = Carbon::tomorrow();
+    $carbon = Carbon::now()->timezone('Asia/Tokyo');
+    $tomorrow = Carbon::now()->timezone('Asia/Tokyo')->addDay();
+    // dd($carbon, $tomorrow);
     // $trip_contents = TripContents::orderBy('recruitment_end_date', 'asc')->get();
     // $data = $users->orderBy('deadline', 'asc')->get();
     
